@@ -1,14 +1,28 @@
 {
   "name": "dmitriev-dmitrii",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node server/index",
+    "start:dev": "nodemon server/index"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "_moduleAliases": {
+    "@controllers": "src/controllers",
+    "@modules": "src/modules",
+    "@routes": "src/routes"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
     "express": "~4.16.1",
-    "morgan": "~1.9.1"
+    "dotenv": "16.0.3",
+    "mongoose": "6.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "morgan": "~1.9.1",
+    "module-alias": "^2.2.2"
   }
 }
