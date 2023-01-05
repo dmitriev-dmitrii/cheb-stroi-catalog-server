@@ -1,8 +1,10 @@
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+require('dotenv').config()
 require('module-alias/register')
 // const indexRouter = require('./src/routes');
 // const usersRouter = require('./src/routes/users');
@@ -17,8 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// index.use('/', indexRouter);
-// index.use('/users', usersRouter);
+// index.js.use('/', indexRouter);
+// index.js.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

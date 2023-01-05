@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 
 /**
  * Module dependencies.
@@ -13,7 +12,7 @@ const http = require('http');
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT);
 app.set('port', port);
 
 /**
@@ -83,6 +82,7 @@ function onError(error) {
  */
 
 function onListening() {
+  console.log(`starting catalog server on port: ${port}`)
   const addr = server.address();
   const bind = typeof addr === 'string'
       ? 'pipe ' + addr
