@@ -10,6 +10,7 @@
     "node": ">=18"
   },
   "_moduleAliases": {
+    "@": ".",
     "@controllers": "src/controllers",
     "@modules": "src/modules",
     "@routes": "src/routes"
