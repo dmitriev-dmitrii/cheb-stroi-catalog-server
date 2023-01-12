@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-    res.send( 'Hello Express' );
+    res.send( 'Hello Express!' );
 });
 
 router.use('/products', require('./products/index') );
