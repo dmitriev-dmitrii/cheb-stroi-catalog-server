@@ -1,27 +1,30 @@
 const app = require('../index');
-const databaseConnect = require('../database');
+const mongoose = require("mongoose");
+
 (async function () {
   try {
 
   const PORT = process.env.PORT;
   const DATA_BASE_URL  = process.env.DATA_BASE_URL;
 
-  if (!PORT) {
-    throw new Error('process.env.PORT  required  ');
-  }
 
   if (!DATA_BASE_URL) {
     throw new Error('process.env.DATA_BASE_URL  required  ');
   }
-    console.log(`await database connect `)
+    console.log(`database connect : loading......`)
 
-    await databaseConnect( DATA_BASE_URL )
+    mongoose.set('strictQuery', false);
+    await mongoose.connect(DATA_BASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 
-    console.log(`success database connect `)
+    console.log(`database connect : success `)
 
-    console.log(`await create server `)
+    if (!PORT) {
+      throw new Error('process.env.PORT  required  ');
+    }
+
+    console.log(`create server : loading...`)
     app.listen(PORT);
-    console.log(`success server created on port: ${PORT}`)
+    console.log(`create server : success`)
   }
 
   catch (err) {

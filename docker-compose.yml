@@ -1,15 +1,18 @@
-version: '3'
+version: "3"
 services:
   app:
-    container_name: catalog-server
+    container_name: csy-catalog-server
     restart: always
     build: .
     ports:
-      - '3000:3000'
-    external_links:
+      - "3000:3000"
+    links:
       - mongo
   mongo:
-    container_name: catalog-data-base
+    container_name: csy-catalog-database
+    restart: always
     image: mongo
+    volumes:
+      - ./database:/csy-catalog-database
     ports:
       - '27017:27017'
