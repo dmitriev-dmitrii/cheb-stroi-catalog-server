@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
   if (!DATA_BASE_URL) {
     throw new Error('process.env.DATA_BASE_URL  required  ');
   }
-    console.log(`database connect : loading......`)
+    console.log(`database connect : loading...`)
 
     mongoose.set('strictQuery', false);
     await mongoose.connect(DATA_BASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })

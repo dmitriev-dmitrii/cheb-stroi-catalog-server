@@ -1,11 +1,11 @@
-version: "3"
+version: '3'
 services:
   app:
     container_name: csy-catalog-server
     restart: always
     build: .
     ports:
-      - "3000:3000"
+      - '3000:3000'
     links:
       - mongo
   mongo:
@@ -13,6 +13,6 @@ services:
     restart: always
     image: mongo
     volumes:
-      - ./database:/csy-catalog-database
+      - './database:/data/db'
     ports:
       - '27017:27017'
