@@ -14,7 +14,8 @@ app.use(logger('dev'));
 
 
 import routes from "./src/routes/index.js";
-app.use(routes);
+app.use('/api', routes);
+
 
 export default app
 

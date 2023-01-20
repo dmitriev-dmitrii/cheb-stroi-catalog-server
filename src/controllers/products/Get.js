@@ -1,5 +1,5 @@
 
-const Product = require ('../../models/products')
+import Product  from '../../models/products/index.js'
 
 const getProductsList = (req, res)=>{
 
@@ -25,7 +25,7 @@ const getProductById = (req, res)=>{
         } );
 };
 
-module.exports = {
+export default  {
     index: getProductsList,
     byId : getProductById
 }

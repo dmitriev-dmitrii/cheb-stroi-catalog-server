@@ -1,6 +1,8 @@
+import Get from './Get.js'
 
-module.exports = {
-    Get:  require ('./Get'),
-    Post: require ('./Post'),
-    Put:  require ('./Put')
+export default {
+    Get
+
+    // Post: require ('./Post'),
+    // Put:  require ('./Put')
 }
