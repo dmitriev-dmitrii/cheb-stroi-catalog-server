@@ -2,18 +2,16 @@
   "name": "dmitriev-dmitrii",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "node server/index.js",
     "dev": "nodemon server/index.js"
   },
+  "nodemonConfig": {
+    "ignore": ["./swagger/*.json"]
+  },
   "engines": {
     "node": ">=18"
-  },
-  "_moduleAliases": {
-    "@": ".",
-    "@controllers": "src/controllers",
-    "@modules": "src/modules",
-    "@routes": "src/routes"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -22,8 +20,9 @@
     "mongoose": "6.8.2"
   },
   "devDependencies": {
+    "swagger-autogen": "2.22.0",
+    "swagger-ui-express": "4.6.0",
     "nodemon": "^2.0.20",
-    "morgan": "~1.9.1",
-    "module-alias": "^2.2.2"
+    "morgan": "~1.9.1"
   }
 }

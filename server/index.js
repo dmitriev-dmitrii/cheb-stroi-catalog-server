@@ -1,5 +1,9 @@
-const app = require('../index');
-const mongoose = require("mongoose");
+import app from '../index.js'
+
+import mongoose from 'mongoose'
+
+import initSwaggerDocumentation from '../swagger/index.js'
+
 
 (async function () {
   try {
@@ -9,7 +13,7 @@ const mongoose = require("mongoose");
 
 
   if (!DATA_BASE_URL) {
-    throw new Error('process.env.DATA_BASE_URL  required  ');
+    throw new Error('process.env.DATA_BASE_URL  required ');
   }
     console.log(`database connect : loading...`)
 
@@ -19,11 +23,14 @@ const mongoose = require("mongoose");
     console.log(`database connect : success `)
 
     if (!PORT) {
-      throw new Error('process.env.PORT  required  ');
+      throw new Error('process.env.PORT  required ');
     }
+
+    await initSwaggerDocumentation(app,`http:/localhost:${PORT}`)
 
     console.log(`create server : loading...`)
     app.listen(PORT);
+
     console.log(`create server : success`)
   }
 

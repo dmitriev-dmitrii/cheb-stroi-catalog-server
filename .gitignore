@@ -7,6 +7,8 @@
 # dotenv environment variables file
 .env
 
+swagger/*.json
+
 package-lock.json
 
 node_modules/*
