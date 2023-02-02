@@ -47,7 +47,7 @@ const  buildSwaggerDocs = async (host) => {
         await  buildSwaggerDocs (host);
         let descriptionsData = await fs.promises.readFile( descriptionFilePath );
 
-        app.use('/documentation', swaggerUi.serve, swaggerUi.setup(  JSON.parse( descriptionsData ) ))
+        app.use('/', swaggerUi.serve, swaggerUi.setup(  JSON.parse( descriptionsData ) ))
 
     } catch (err) {
 
@@ -61,7 +61,7 @@ const  buildSwaggerDocs = async (host) => {
         }
 
         console.log(err)
-        app.get('/documentation', function(req, res){
+        app.get('/', function(req, res){
             res.send({ title: `build ${descriptionFileName} : failed `}  );
         });
     }

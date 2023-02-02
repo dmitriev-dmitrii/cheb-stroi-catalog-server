@@ -1,21 +1,18 @@
 
-const Product = require ('../../models/products')
-
+import Product  from '../../models/products/index.js'
 const createProduct = (req, res) => {
     const newProduct = new Product(req.body);
 
     newProduct
         .save()
         .then((result) => {
-            res.send()
+            res.send(result)
         }).catch((err)=>{
             res.send(err)
     })
 
 };
 
-
-
-module.exports = {
+export default {
     create: createProduct
 }

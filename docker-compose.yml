@@ -7,11 +7,13 @@ services:
     ports:
       - '3000:3000'
     links:
-      - mongo
-  mongo:
+      - mongodb
+    depends_on:
+      - mongodb
+  mongodb:
     container_name: csy-catalog-database
     restart: always
-    image: mongo
+    image: mongo:latest
     volumes:
       - './database:/data/db'
     ports:

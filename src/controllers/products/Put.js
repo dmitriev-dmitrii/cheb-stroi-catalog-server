@@ -1,27 +1,21 @@
 
-const Product = require ('../../models/products')
+import Product  from '../../models/products/index.js'
 
-const createProduct = (req, res) => {
-    const newProduct = new Product(req.body);
+const  updateProductById = async (req, res) => {
+try {
+    
+const options = {new:true}
+const result = await  Product.findByIdAndUpdate(req.body.id, req.body,options);
 
-    newProduct
-        .save()
-        .then((result) => {
-            res.send()
-        })
+ res.send(result)
+}
+
+ catch (err) {
+    res.send(err)
+ }  
 
 };
 
-const updateProductById = (req, res) => {
-    Product
-        .findByIdAndUpdate(req.params.id, req.body)
-        .then((result) => {
-            res
-                .status(200)
-                .json(result);
-        })
-};
-
-module.exports = {
+export default  {
     updateById : updateProductById
 }

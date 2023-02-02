@@ -1,7 +1,11 @@
 import express from 'express'
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+import cors from "cors";
+app.use(cors(''));
 
 import dotenv from  'dotenv'
 dotenv.config();
@@ -14,8 +18,7 @@ app.use(logger('dev'));
 
 
 import routes from "./src/routes/index.js";
-app.use('/api', routes);
-
+app.use(routes);
 
 export default app
 
