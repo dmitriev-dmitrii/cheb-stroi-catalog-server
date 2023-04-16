@@ -1,11 +1,14 @@
 version: '3'
 services:
-  app:
-    container_name: csy-catalog-server
+  api-server:
+    container_name: csy-catalog
     restart: always
     build: .
+    volumes:
+          - './database:/data/db'
     ports:
       - '3000:3000'
+
 #    links:
 #      - mongodb
 #    depends_on:
