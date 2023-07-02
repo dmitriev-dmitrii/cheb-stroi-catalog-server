@@ -7,10 +7,12 @@
 # dotenv environment variables file
 #.env
 
+dist/*
+
 swagger/*.json
 
 package-lock.json
 
 node_modules/*
-database/*
+
 
